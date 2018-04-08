@@ -5,6 +5,7 @@
   "dependencies": {
     "express-http-proxy": "^1.1.0",
     "html-entities": "^1.2.1",
+    "nuka-carousel": "^4.0.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router": "^4.2.0",

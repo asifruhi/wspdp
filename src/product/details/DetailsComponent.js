@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { AllHtmlEntities } from 'html-entities';
 
+import Carousel from 'nuka-carousel';
+
 import priceFormat from '../../utils/priceFormat';
+import Overlay from '../../common/Overlay';
+
 import './DetailsComponent.css';
 
 const entities = new AllHtmlEntities();
@@ -25,7 +29,7 @@ class ProductDetails extends React.Component {
 	}
 
 	showAltImages() {
-		
+		this.overlay.show();
 	}
 
 	render() {
@@ -33,16 +37,28 @@ class ProductDetails extends React.Component {
 		return (
 			<div>
 				<Link to='/products' className="all-products-link">View All Products</Link>
-				<div className="product-detail-container">
-          <img alt={product.name} src={product.hero.href} onClick={this.showAltImages()}/>
-          <div className="product-detail">
-	          <h1>{entities.decode(product.name)}</h1>
-	          <div>
-	            {product.priceRange.regular ? (<div className="regular product-price">Regular Price: {priceFormat(product.priceRange.regular.low)} - {priceFormat(product.priceRange.regular.high)}</div>) : ''}
-	            {product.priceRange.selling ? (<div className="selling product-price">Selling Price: {priceFormat(product.priceRange.selling.low)} - {priceFormat(product.priceRange.selling.high)}</div>) : ''}
-	          </div>
+				<div className="pure-g product-detail-container">
+					<div className="pure-u-1 pure-u-md-1-2 product-image">
+            <img alt={product.name} src={product.hero.href} onClick={this.showAltImages}/>
+          </div>
+          <div className="pure-u-1 pure-u-md-1-2">
+            <div className="product-detail">
+		          <h1>{entities.decode(product.name)}</h1>
+		          <div>
+		            {product.priceRange.regular ? (<div className="regular product-price">Regular Price: {priceFormat(product.priceRange.regular.low)} - {priceFormat(product.priceRange.regular.high)}</div>) : ''}
+		            {product.priceRange.selling ? (<div className="selling product-price">Selling Price: {priceFormat(product.priceRange.selling.low)} - {priceFormat(product.priceRange.selling.high)}</div>) : ''}
+		          </div>
+		        </div>
 	         </div>
         </div>
+        <Overlay ref={el => this.overlay = el}>
+					<Carousel className="images-overlay">
+						<img key='img0' alt={product.name} src={product.hero.href}/>
+						{
+							product.images.map((image, idx) => <img alt={product.name} key={'img' + (idx + 1)} src={image.href}/>)
+						}
+					</Carousel>
+        </Overlay>
 			</div>
 		);
 	}

@@ -3,11 +3,11 @@
   margin: auto;
 }
 
-@media screen and (min-width: 48em) {
-	.container .app-header {
-  	text-align: center;
-  }
+.container .app-header {
+  text-align: center;
+}
 
+@media screen and (min-width: 48em) {
   .container .page-title {
   	padding-left: 12px;
   }
