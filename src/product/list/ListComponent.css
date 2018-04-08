@@ -9,11 +9,6 @@
 	position: relative;
 }
 
-.products-list .product a {
-	text-decoration: none;
-	color: black;
-}
-
 .products-list .product .product-name {
 	line-height: 1.5em;
   padding: 10px;

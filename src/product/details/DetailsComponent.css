@@ -1,0 +1,26 @@
+.all-products-link {
+	display: block;
+	padding-bottom: 10px;
+}
+
+.product-detail-container {
+	display: flex;
+}
+
+.product-detail-container .product-detail {
+	margin-left: 10px;
+}
+
+.product-detail-container .product-detail .product-price {
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+.product-detail-container .product-detail .regular {
+	color: grey;
+}
+
+.product-detail-container .product-detail .selling {
+	color: red;
+	opacity: 0.8;
+}

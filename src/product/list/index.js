@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsList from './listComponent';
+import ProductsList from './ListComponent';
 
 class ListWrapper extends React.Component {
 	constructor(props) {

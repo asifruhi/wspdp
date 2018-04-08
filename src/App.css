@@ -1,6 +1,11 @@
+.container {
+  max-width: 80em;
+  margin: auto;
+}
+
 @media screen and (min-width: 48em) {
 	.container .app-header {
-  	padding-left: 12px;
+  	text-align: center;
   }
 
   .container .page-title {

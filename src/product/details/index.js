@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ProductDetails from './detailsComponent';
+import ProductDetails from './DetailsComponent';
 
 class ProductDetailsWrapper extends React.Component {
 	static propTypes = {

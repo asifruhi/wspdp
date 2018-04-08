@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AllHtmlEntities } from 'html-entities';
 
 import priceFormat from '../../utils/priceFormat';
-import './listComponent.css';
+import './ListComponent.css';
 
 const entities = new AllHtmlEntities();
 
