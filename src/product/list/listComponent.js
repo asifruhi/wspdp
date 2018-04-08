@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { AllHtmlEntities } from 'html-entities';
 
 import priceFormat from '../../utils/priceFormat';
+import './listComponent.css';
+
+const entities = new AllHtmlEntities();
 
 class ProductsList extends React.Component {
 	static propTypes = {
@@ -18,21 +22,21 @@ class ProductsList extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3>{this.props.title}</h3>
+				<h3 className="page-title">{this.props.title}</h3>
 				<div className='errors'>
 					{this.props.errors.map(e => (<div>e</div>))}
 				</div>
-				<ul>
+				<ul className="pure-g products-list">
 					{
 						this.props.products.map(product => (
-								<li key={product.id}>
-									<Link to={'/products/details/' + product.id}>
+								<li key={product.id} className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4 product">
+									<Link to={'/products/' + product.id}>
 										<div>
-											<img alt={product.name} src={product.thumbnail.href} height={product.height} width={product.width}/>
-											<div>{product.name}</div>
+											<img alt={product.name} src={product.thumbnail.href}/>
+											<div className="product-name">{entities.decode(product.name)}</div>
 											<div>
-												{product.priceRange.regular ? (<div className='regular'>{priceFormat(product.priceRange.regular.low)} - {priceFormat(product.priceRange.regular.high)}</div>) : ''}
-												{product.priceRange.selling ? (<div className='selling'>{priceFormat(product.priceRange.selling.low)} - {priceFormat(product.priceRange.selling.high)}</div>) : ''}
+												{product.priceRange.regular ? (<div className="regular product-price">{priceFormat(product.priceRange.regular.low)} - {priceFormat(product.priceRange.regular.high)}</div>) : ''}
+												{product.priceRange.selling ? (<div className="selling product-price">{priceFormat(product.priceRange.selling.low)} - {priceFormat(product.priceRange.selling.high)}</div>) : ''}
 											</div>
 										</div>
 									</Link>
