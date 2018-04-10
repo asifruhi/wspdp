@@ -49,6 +49,7 @@ Below are the steps to setup and run the project:
 * Download the project to your workspace using ```git clone <path>```
 * Install dependencies using ```yarn install```
 * For local development, use ```yarn start```
+* For local unit testing, use ```yarn test```
 * For production build, use ```yarn build```
 * To run production version of the application (after production build), use ```yarn server```
 
