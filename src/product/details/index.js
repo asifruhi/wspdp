@@ -2,47 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProductDetails from './DetailsComponent';
+import dataFetcher from './dataFetcher';
 
 class ProductDetailsWrapper extends React.Component {
 	static propTypes = {
-		product: PropTypes.object
-	};
-
-	static defaultProps = {
-		product: null
+		staticContext: PropTypes.object.isRequired
 	};
 
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			product: this.props.product,
-			productId: this.props.match.params.id,
-			errors: []
+			staticContext: this.props.staticContext,
+			match: this.props.match,
+			productId: this.props.match.params.id
 		}
 	}
 
 	componentDidMount() {
-		if (!this.props.product) {
-			fetch('/services/catalog/v4/category/shop/new/all-new/index.json')
-	      .then(response => response.json())
-	      .then(data => {
-	        this.setState({
-	          product: data.groups.find(product => product.id === this.state.productId)
-	        });
-	      })
-	      .catch(e => {
-	        this.setState({
-	          errors: ['Error loading products from API server']
-	        });
-	        console.log('Error loading products:', e);
-	      });
+		//called only on browser for client-side rendering
+		if (!this.state.staticContext) {
+			if (typeof window !== 'undefined' && window.__REACT_APP_VIEW_DATA__) {
+				this.setState({
+					staticContext: {data: JSON.parse(window.__REACT_APP_VIEW_DATA__)}
+				});
+
+				delete window.__REACT_APP_VIEW_DATA__;
+			} else {
+				dataFetcher({params: this.state.match.params})
+					.then(data => this.setState({
+						staticContext: { data }
+					}));
+			}
 		}
 	}
 
 	render() {
-		const { product, errors } = this.state;
-		return product ? (<ProductDetails product={product} errors={errors}/>) : (<div></div>);
+		if (this.state.staticContext) {
+			const { data } = this.state.staticContext;
+			return data ? (<ProductDetails product={data}/>) : (<div></div>);
+		}
+
+		return (<div></div>);
 	}
 }
 

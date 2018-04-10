@@ -1,37 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import ProductsList from './ListComponent';
+import dataFetcher from './dataFetcher';
 
 class ListWrapper extends React.Component {
+	static propTypes = {
+		staticContext: PropTypes.object
+	}
+
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			staticContext: this.props.staticContext,
 			title: '',
-			products: [],
-			errors: []
+			products: []
 		}
 	}
 
 	componentDidMount() {
-		fetch('/services/catalog/v4/category/shop/new/all-new/index.json')
-			.then(response => response.json())
-			.then(data => {
+		//called only on browser for client-side rendering
+		if (!this.state.staticContext) {
+			if (typeof window !== 'undefined' && window.__REACT_APP_VIEW_DATA__) {
 				this.setState({
-					title: data.name,
-					products: data.groups
+					staticContext: {data: JSON.parse(window.__REACT_APP_VIEW_DATA__)}
 				});
-			})
-			.catch(e => {
-				this.setState({
-					errors: ['Error loading products from API server']
-				});
-				console.log('Error loading products:', e);
-			});
+
+				delete window.__REACT_APP_VIEW_DATA__;
+			} else {
+        dataFetcher()
+          .then(data => this.setState({
+            staticContext: { data }
+          }));
+      }
+		}
 	}
 
 	render() {
-		const { title, products, errors } = this.state;
-		return (<ProductsList title={title} products={products} errors={errors}/>);
+		if (this.state.staticContext) {
+			const { data } = this.state.staticContext;
+			return (<ProductsList title={data.name} products={data.groups} />);
+		}
+
+		return (<div></div>);
 	}
 }
 

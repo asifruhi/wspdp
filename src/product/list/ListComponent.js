@@ -20,12 +20,9 @@ class ProductsList extends React.Component {
 	}
 
 	render() {
-		return (
+		return this.props.products ? (
 			<div>
 				<h3 className="page-title">{this.props.title}</h3>
-				<div className='errors'>
-					{this.props.errors.map(e => (<div>e</div>))}
-				</div>
 				<ul className="pure-g products-list">
 					{
 						this.props.products.map(product => (
@@ -46,7 +43,7 @@ class ProductsList extends React.Component {
 					}
 				</ul>
 			</div>
-		);
+		) : (<div></div>);
 	}
 }
 

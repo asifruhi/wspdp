@@ -34,7 +34,7 @@ class ProductDetails extends React.Component {
 
 	render() {
 		const { product } = this.props;
-		return (
+		return product ? (
 			<div>
 				<Link to='/products' className="all-products-link">View All Products</Link>
 				<div className="pure-g product-detail-container">
@@ -60,7 +60,7 @@ class ProductDetails extends React.Component {
 					</Carousel>
         </Overlay>
 			</div>
-		);
+		) : (<div></div>);
 	}
 }
 
