@@ -7,9 +7,9 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container" role="main">
         <header className="app-header">
-          <h1 className="app-title">West<span>Elm</span></h1>
+          <h1 className="app-title" role="banner" tabIndex="1">West<span>Elm</span></h1>
         </header>
         <div>
         {routes.map(({path, exact, component: Comp}) => <Route key={path} path={path} exact={exact} render={props => (<Comp {...props}/>)}/>)}

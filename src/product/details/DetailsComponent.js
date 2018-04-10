@@ -37,16 +37,16 @@ class ProductDetails extends React.Component {
 		return product ? (
 			<div>
 				<Link to='/products' className="all-products-link">View All Products</Link>
-				<div className="pure-g product-detail-container">
+				<div className="pure-g product-detail-container" role="article">
 					<div className="pure-u-1 pure-u-md-1-2 product-image">
-            <img alt={product.name} src={product.hero.href} onClick={this.showAltImages}/>
+            <img alt={product.name} src={product.hero.href} onClick={this.showAltImages} tabIndex="5"/>
           </div>
           <div className="pure-u-1 pure-u-md-1-2">
             <div className="product-detail">
-		          <h1>{entities.decode(product.name)}</h1>
-		          <div>
-		            {product.priceRange.regular ? (<div className="regular product-price">Regular Price: {priceFormat(product.priceRange.regular.low)} - {priceFormat(product.priceRange.regular.high)}</div>) : ''}
-		            {product.priceRange.selling ? (<div className="selling product-price">Selling Price: {priceFormat(product.priceRange.selling.low)} - {priceFormat(product.priceRange.selling.high)}</div>) : ''}
+		          <h1 tabIndex="2">{entities.decode(product.name)}</h1>
+		          <div role="contentinfo">
+		            {product.priceRange.regular ? (<div className="regular product-price" tabIndex="3">Regular Price: {priceFormat(product.priceRange.regular.low)} - {priceFormat(product.priceRange.regular.high)}</div>) : ''}
+		            {product.priceRange.selling ? (<div className="selling product-price" tabIndex="4">Selling Price: {priceFormat(product.priceRange.selling.low)} - {priceFormat(product.priceRange.selling.high)}</div>) : ''}
 		          </div>
 		        </div>
 	         </div>

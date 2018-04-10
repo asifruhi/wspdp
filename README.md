@@ -22,7 +22,8 @@ This project showcases the following features:
 * `Server-side routing` using the same router as the client-side
 * `Isomorphic` application
 * `Responsive` application to support phone, tablet as well as desktop screen sizes
-* `Seperate builds` - using `Hot Module Reloads` for local development and `highly optimized` Production build  
+* `Seperate builds` - using `Hot Module Reloads` for local development and `highly optimized` Production build
+* `a11y` support - adds basic screen reader support  
 
 ## Tech-stack
 

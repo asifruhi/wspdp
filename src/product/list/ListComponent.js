@@ -22,11 +22,11 @@ class ProductsList extends React.Component {
 	render() {
 		return this.props.products ? (
 			<div>
-				<h3 className="page-title">{this.props.title}</h3>
-				<ul className="pure-g products-list">
+				<h3 className="page-title" tabIndex="2">{this.props.title}</h3>
+				<ul className="pure-g products-list" role="grid">
 					{
 						this.props.products.map(product => (
-								<li key={product.id} className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4 product">
+								<li key={product.id} className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4 product" role="gridcell">
 									<Link to={'/products/' + product.id}>
 										<div>
 											<img alt={product.name} src={product.thumbnail.href}/>
