@@ -24,6 +24,7 @@ This project showcases the following features:
 * `Responsive` application to support phone, tablet as well as desktop screen sizes
 * `Seperate builds` - using `Hot Module Reloads` for local development and `highly optimized` Production build
 * `a11y` support - adds basic screen reader support  
+* `Jest Snapshot` testing to test against known snapshot
 
 ## Tech-stack
 
@@ -34,7 +35,8 @@ Below are the main tools and technologies used:
 * [`react-router`](https://github.com/ReactTraining/react-router) for routing
 * [`PureCSS Grids`](https://purecss.io/grids/) for a minimalist `responsive grid system`
 * [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch) for fetch API
-* [`expressjs`](http://expressjs.com/) for server application on node  
+* [`expressjs`](http://expressjs.com/) for server application on node
+* [`jest`](https://facebook.github.io/jest/) for unit testing  
 * `ES6` features
 * `media queries` for responsive products list
 * `yarn` for package management
