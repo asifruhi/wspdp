@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders product details correctly 1`] = `
+<div>
+  <a
+    href="/products"
+    role="link"
+  >
+    View All Products
+  </a>
+  <div
+    className="pure-g product-detail-container"
+  >
+    <div
+      className="pure-u-1 pure-u-md-1-2 product-image"
+    >
+      <img
+        alt="image for Metallic Square Lanterns"
+        onClick={[Function]}
+        src="https://www.westelm.com/weimgs/ab/images/wcm/products/201810/0031/metallic-square-lanterns-m.jpg"
+        tabIndex="5"
+      />
+    </div>
+    <div
+      className="pure-u-1 pure-u-md-1-2"
+    >
+      <div
+        className="product-detail"
+      >
+        <h1
+          aria-label="Product name is Metallic Square Lanterns"
+          tabIndex="2"
+        >
+          Metallic Square Lanterns
+        </h1>
+        <div>
+          <div
+            aria-label="Regular price range is $24 to $149"
+            className="regular product-price"
+            tabIndex="3"
+          >
+            Regular Price: 
+            $24
+             - 
+            $149
+          </div>
+          <div
+            aria-label="Selling price range is $18 to $111"
+            className="selling product-price"
+            tabIndex="4"
+          >
+            Selling Price: 
+            $18
+             - 
+            $111
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div />
+</div>
+`;

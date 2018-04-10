@@ -11,12 +11,7 @@ const entities = new AllHtmlEntities();
 class ProductsList extends React.Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
-		products: PropTypes.array.isRequired,
-		errors: PropTypes.array
-	}
-
-	static defaultProps = {
-		errors: []
+		products: PropTypes.array.isRequired
 	}
 
 	render() {

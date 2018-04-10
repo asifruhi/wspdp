@@ -14,12 +14,7 @@ const entities = new AllHtmlEntities();
 
 class ProductDetails extends React.Component {
 	static propTypes = {
-		product: PropTypes.object.isRequired,
-		errors: PropTypes.array
-	}
-
-	static defaultProps = {
-		errors: []
+		product: PropTypes.object.isRequired
 	}
 
 	constructor(props) {

@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders products list correctly 1`] = `
+<div>
+  <h3
+    className="page-title"
+    tabIndex="2"
+  >
+    Some Products
+  </h3>
+  <ul
+    className="pure-g products-list"
+    role="grid"
+  >
+    <li
+      className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4 product"
+      role="gridcell"
+    >
+      <a
+        href="/products/metallic-square-lanterns-d5161"
+        role="link"
+      >
+        <div>
+          <img
+            alt="image for Metallic Square Lanterns"
+            src="https://www.westelm.com/weimgs/ab/images/wcm/products/201810/0031/metallic-square-lanterns-m.jpg"
+          />
+          <div
+            aria-label="Product Name is Metallic Square Lanterns"
+            className="product-name"
+          >
+            Metallic Square Lanterns
+          </div>
+          <div>
+            <div
+              aria-label="Regular price range is $24 to $149"
+              className="regular product-price"
+            >
+              $24
+               - 
+              $149
+            </div>
+            <div
+              aria-label="Selling price range is $18 to $111"
+              className="selling product-price"
+            >
+              $18
+               - 
+              $111
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li
+      className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4 product"
+      role="gridcell"
+    >
+      <a
+        href="/products/terrace-lanterns-d5183"
+        role="link"
+      >
+        <div>
+          <img
+            alt="image for Terrace Lanterns"
+            src="https://www.westelm.com/weimgs/ab/images/wcm/products/201808/0047/gold-glass-candleholders-m.jpg"
+          />
+          <div
+            aria-label="Product Name is Terrace Lanterns"
+            className="product-name"
+          >
+            Terrace Lanterns
+          </div>
+          <div>
+            <div
+              aria-label="Regular price range is $39 to $44"
+              className="regular product-price"
+            >
+              $39
+               - 
+              $44
+            </div>
+            <div
+              aria-label="Selling price range is $29 to $44"
+              className="selling product-price"
+            >
+              $29
+               - 
+              $44
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+`;
