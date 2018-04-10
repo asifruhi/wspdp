@@ -12,13 +12,18 @@ import App from './App';
 const app = express();
 const indexTemplate = fs.readFileSync(path.join(process.cwd(), 'build', 'index.html'), 'utf-8').toString().trim();
 
+app.get('/', (req, res) => {
+	res.writeHead(302, {
+	  Location: '/products'
+	})
+	res.end()
+});
+
 app.use(express.static(path.join(process.cwd(), 'build')));
 
 app.get('/services/*', proxy('https://www.westelm.com/services'));
 
-//	res.sendFile(path.join(process.cwd(), 'build', 'index.html'))
-
-app.get('/*', (req, res) => {
+app.get('/products*', (req, res) => {
 		const {route, match } = routes.reduce((acc, route) => {
 			const match = matchPath(req.url, route);
 			if (match) {
